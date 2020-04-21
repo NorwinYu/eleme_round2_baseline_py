@@ -4,6 +4,9 @@
 智慧物流：新冠期间饿了么骑士行为预估 复赛 
 Baseline 流程部署分享
 
+## 官方源码更新 4.21版本
+* 我起来发现官方源码更新了，需要官网重新下载，相关描述是基于 4.20版本，可能有出入
+
 ## 数据下载
 * 下载 官方 Baseline 源码 `eleme_round2_dispatch_master_20200420.zip` ， 解压在目录
 `eleme_round2_dispatch_master_20200420` 下
