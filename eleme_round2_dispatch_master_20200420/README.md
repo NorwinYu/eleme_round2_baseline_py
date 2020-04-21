@@ -158,7 +158,7 @@ Content-type: application/json;charset=utf-8;
                 "planRoutes":[
                     {
                         "actionTime":1578441458,//该动作发生时间
-                        "actionType":1,//1:取货动作; 2.送货动作
+                        "actionType":1,//1:到店动作; 2.取餐动作; 3.送货动作
                         "orderId":"14700505841629255466"
                     }
                 ]
@@ -185,7 +185,7 @@ make build-java
 2. 启动选手自己http server，端口8080
 3. 启动评测程序，进行评测
 ```
-java -jar dispatch-api/target/dispatch-judge-jar-with-dependencies.jar `pwd`/dispatch-api/target/classes/data
+java -jar dispatch-api/target/dispatch-judge-jar-with-dependencies.jar /test_data_dir
 ```
 
 #### 本地无java环境，使用Docker
@@ -196,7 +196,7 @@ make build-java # build-python,build-go
 2. 启动选手自己http server，端口8080
 3. 启动评测镜像
 ``` 
-docker run -v /your_local_mock_data_dir:/data/mock/data -e API_SERVER="http://172.17.0.1:8080" -it ${docker_judge_image_url}:${version}
+docker run -e API_SERVER="http://172.17.0.1:8080" -it registry.cn-hangzhou.aliyuncs.com/tianchi-eleme-dispatch/judge-base:v2.0
 ```
 
 ### Module说明

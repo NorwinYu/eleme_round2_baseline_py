@@ -8,6 +8,7 @@ import dispatch.demo.dto.DispatchSolution;
 import dispatch.demo.dto.Response;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -35,6 +36,12 @@ public class DispatchController {
 
     @RequestMapping(value = "/ping", method = RequestMethod.GET)
     public Response<String> ping() {
+        System.out.println("ping");
+        return new Response<>("PONG");
+    }
+
+    @RequestMapping(value = "/score", method = RequestMethod.POST)
+    public Response<String> score(HttpServletRequest request) {
         System.out.println("ping");
         return new Response<>("PONG");
     }

@@ -13,7 +13,7 @@ cpu=8
 GC_PARALLEL_THREAD=`expr $((cpu*5/8))`
 GC_CONC_THREAD=`expr $((cpu*5/8/4+1))`
 
-MEM_OPTS="-server -Xms12g -Xmx12g -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=512m"
+MEM_OPTS="-server"
 
 G1_OPTS="-XX:+UnlockExperimentalVMOptions -XX:G1RSetUpdatingPauseTimePercent=5 -XX:InitiatingHeapOccupancyPercent=33 -XX:G1NewSizePercent=35 -XX:G1MaxNewSizePercent=50 -XX:+AlwaysPreTouch -XX:-ParallelRefProcEnabled"
 G1_OPTS="$G1_OPTS -XX:ParallelGCThreads=$GC_PARALLEL_THREAD -XX:ConcGCThreads=$GC_CONC_THREAD"

@@ -27,7 +27,7 @@ class Courier(object):
 
 class Order(object):
     def __init__(self, _areaId, _id, _srcLoc, _dstLoc, _status, _createTimestamp, _promiseDeliverTime,
-                 _estimatedPrepareCompletedTimestamp):
+                 _estimatedPrepareCompletedTime):
         self.areaId = _areaId
         self.id = _id
         self.srcLoc = _srcLoc
@@ -35,11 +35,11 @@ class Order(object):
         self.status = _status
         self.createTimestamp = _createTimestamp
         self.promiseDeliverTime = _promiseDeliverTime
-        self.estimatedPrepareCompletedTimestamp = _estimatedPrepareCompletedTimestamp
+        self.estimatedPrepareCompletedTime = _estimatedPrepareCompletedTime
 
     def keys(self):
         return ['id', 'areaId', 'srcLoc', 'dstLoc', 'status',
-                'createTimestamp', 'promiseDeliverTime', 'estimatedPrepareCompletedTimestamp']
+                'createTimestamp', 'promiseDeliverTime', 'estimatedPrepareCompletedTime']
 
     def __getitem__(self, item):
         return getattr(self, item)
@@ -82,6 +82,17 @@ class DispatchRequest(object):
     def keys(self):
         return ['requestTimestamp', 'areaId', 'isFirstRound', 'isLastRound',
                 'couriers', 'orders']
+
+    def __getitem__(self, item):
+        return getattr(self, item)
+
+
+class DispatchSolution(object):
+    def __init__(self, _courierPlans):
+        self.courierPlans = _courierPlans
+
+    def keys(self):
+        return ['courierPlans']
 
     def __getitem__(self, item):
         return getattr(self, item)

@@ -1,15 +1,18 @@
 package dispatch.judge;
 
+import com.alibaba.fastjson.JSON;
 import dispatch.api.DispatchClient;
 import dispatch.api.impl.HttpDispatchClientImpl;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
+import java.util.HashMap;
 
 @Slf4j
 public class DispatchJudge {
 
     public static void main(String[] args) {
+
         String directory = "";
         String api = "http://localhost:8080";
         if (args.length > 0) {

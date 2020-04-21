@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="dispatch-demo-py",
+    name="dispatch_demo_py",
     version="0.0.1",
     author="fangyu.ffy",
     author_email="fangyu.ffy@alibaba-inc.com",

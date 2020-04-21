@@ -1,17 +1,14 @@
-import http
+#!/usr/bin/python
 
 from flask import Flask, jsonify, request
-
-import json
-
-from demo.dto import Response
 
 app = Flask(__name__)
 
 
 @app.route('/api/v1/ping', methods=['GET'])
 def ping():
-    return json.dumps(dict(Response(200, "Pong", "")))
+    pong_result = '{"code":200,"result":"PONG"}'
+    return pong_result
 
 
 @app.route('/api/v1/dispatch', methods=['POST'])
@@ -19,7 +16,17 @@ def dispatch():
     data = request.json
     # data is in format of demo.dto.DispatchRequest
     print(data)
-    return '', http.HTTPStatus.OK
+    empty_result = """{
+        "code":200,
+        "result":{
+            "courierPlans":[]
+        }
+    }"""
+    return empty_result
+
+
+def local_start(port=8080):
+    app.run(debug=True, port=port)
 
 
 if __name__ == "__main__":
