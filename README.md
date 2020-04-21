@@ -6,6 +6,17 @@ Baseline 流程部署分享
 
 ## 官方源码更新 4.21版本
 * 我起来发现官方源码更新了，需要官网重新下载，相关描述是基于 4.20版本，可能有出入
+* 由于我没找到更新日志，错过直播，我用 git 比较了两个版本源码，详情见https://github.com/NorwinYu/eleme_round2_baseline/commit/f7ad6ea50cd9fcdcefcd650cf5d940896589d09e
+* 根据比对，主要更新是 py 版本的评测程序的联动，docker化，优化交互，更新少量描述和配置，具体如下，个人见解，具体见官方源码
+* 更新 解决了我之前提到的 run.sh 替换问题
+* 更新 增加 DockerfileP，应该是用于python demo docker 化
+* 更新 README.md 相关说明
+* 更新了 Java 里的 HttpDispatchClientImplTest.java 这个影响不大，测试文件
+* 更新了 dispatch-demo-py/app.py  
+* 更新了 dispatch-demo-py/demo/dto.py
+* 把 dispatch-judge-jar-with-dependencies.jar open_test 数据 放入了 py 版本中
+* 更新了 DispatchController.java
+* 更新了 run.sh 配置
 
 ## 数据下载
 * 下载 官方 Baseline 源码 `eleme_round2_dispatch_master_20200420.zip` ， 解压在目录
