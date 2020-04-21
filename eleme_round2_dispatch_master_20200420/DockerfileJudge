@@ -1,0 +1,20 @@
+FROM registry.cn-shanghai.aliyuncs.com/tcc-public/java:jdk_13.0.2
+MAINTAINER annoymous
+
+WORKDIR /data
+
+RUN mkdir -p /data/mock
+
+# copy 官方评测包到/data目录
+COPY dispatch-api/target/dispatch-judge-jar-with-dependencies.jar /data/
+
+COPY open_test /data/mock/data
+
+COPY start_judge.sh /data/
+
+ENV API_SERVER "http://172.17.0.1:8080"
+ENV MOCK_DATA_DIR "/data/mock/data"
+
+RUN chmod u+x start_judge.sh
+
+CMD ["/bin/bash","start_judge.sh"]
