@@ -79,8 +79,15 @@ java -jar dispatch-api/target/dispatch-judge-jar-with-dependencies.jar `pwd`/ope
 * 自动构建和官方说明类似，只是在创建时候选取通过代码进行自动构建，然后我关联了Github，本来想关联阿里云的代码托管，结果发现 git push 也很慢。
 * 自动构建可以设置构建触发规则已经目录，目录一定要设置正确。
 ![](%E5%A4%8D%E8%B5%9B%20Baseline%20%E6%B5%81%E7%A8%8B%E9%83%A8%E7%BD%B2%E5%88%86%E4%BA%AB/Screen%20Shot%202020-04-21%20at%206.55.34%20AM.png)
-图中是我自己的Private 项目，本个分享的话 文件目录是 `eleme_round2_dispatch_master_20200420/` , 文件名还是 `Dockerfile` , 版本号可以自己设置或者通过触发的参量。
+图中是我自己的Private 项目，本个分享的话 文件目录是 `/eleme_round2_dispatch_master_20200420/` , 文件名还是 `Dockerfile` , 版本号可以自己设置或者通过触发的参量。如果经常改代码的不如关了 代码变更自动构建镜像 功能，一键构建。建议版本号每次构建进行更改，或者通过触发规则参量传递每次构建更新版本号，这样可以体现镜像的功能。
 * 有一点，由于构建需要 jar 包，之前编译完后，需要把 jar  git add  force, 因为一般是 git ignore
+
+```
+git add dispatch-demo/target/dispatch-demo.jar -f
+git commit -m "Your message"
+git push
+```
+
 * 然后手动开始构建。
 * 构建成功在提交界面输入镜像地址和用户密码即可。
 
