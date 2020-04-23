@@ -1,3 +1,5 @@
+from typing import Dict, List
+
 class Location(object):
     def __init__(self, _latitude, _longitude):
         self.latitude = _latitude
@@ -18,11 +20,20 @@ class Courier(object):
         self.speed = _speed
         self.maxLoads = __maxLoads
 
+        self.planRoutes: List[ActionNode] = []
+        self.orders: List[Order] = []
+
     def keys(self):
         return ['id', 'areaId', 'loc', 'speed', 'maxLoads']
 
     def __getitem__(self, item):
         return getattr(self, item)
+
+    def setLoc(self, loc):
+        self.loc = loc
+
+    def setsetPlanRoutes(self, _planRoutes):
+        self.planRoutes = _planRoutes
 
 
 class Order(object):
@@ -44,24 +55,38 @@ class Order(object):
     def __getitem__(self, item):
         return getattr(self, item)
 
+    def setStatus(self, status):
+        self.status = status
+
 
 class ActionNode(object):
-    def __init__(self, _actionType, _orderId, _actionTimestamp):
+    def __init__(self, _actionType, _orderId, _actionTimestamp, _isSubmitted, _needSubmitTime):
+        self.actionTime = _actionTimestamp
         self.actionType = _actionType
         self.orderId = _orderId
-        self.actionTimestamp = _actionTimestamp
+        if _isSubmitted is None:
+            self.isSubmitted = False
+        else:
+            self.isSubmitted = _isSubmitted
+        if _needSubmitTime is None:
+            self.needSubmitTime = -1
+        else:
+            self.needSubmitTime = _needSubmitTime
 
     def keys(self):
-        return ['actionType', 'orderId', 'actionTimestamp']
+        return ['actionType', 'orderId', 'actionTimestamp', 'isSubmitted', 'needSubmitTime']
 
     def __getitem__(self, item):
         return getattr(self, item)
+
+    def setSubmitted(self, _isSubmitted):
+        self.isSubmitted = _isSubmitted
 
 
 class CourierPlan(object):
     def __init__(self, _courierId, _planRoutes):
         self.courierId = _courierId
-        self.planRoutes = _planRoutes
+        self.planRoutes: List[ActionNode] = _planRoutes
 
     def keys(self):
         return ['courierId', 'planRoutes']
