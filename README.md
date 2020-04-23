@@ -38,7 +38,7 @@ demo 挂起（后台版本）`eleme_round2_dispatch_master_20200421/run_py.sh`
 
 本地一体评测（需要JDK环境）， `local_judge.py` 
 
-评测 jar 包：``eleme_round2_dispatch_master_20200421/dispatch-demo-py/dispatch-judge-jar-with-dependencies.jar`
+评测 jar 包：`eleme_round2_dispatch_master_20200421/dispatch-demo-py/dispatch-judge-jar-with-dependencies.jar`
 
 ## 流程
 
