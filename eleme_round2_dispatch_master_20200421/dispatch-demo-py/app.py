@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 from flask import Flask, jsonify, request
-from .demo.service import DispatchService
-from .demo.dto import DispatchRequest, Location, Order, Courier, Response
+from demo.service import DispatchService
+from demo.dto import DispatchRequest, Location, Order, Courier, Response
 import json
 
 app = Flask(__name__)
@@ -62,7 +62,7 @@ dispatchService = DispatchService()
 def dispatch():
     data = request.json
     # data is in format of demo.dto.DispatchRequest
-    print(data)
+    # print(data)
     # empty_result = """{
     #     "code":200,
     #     "result":{
@@ -85,8 +85,8 @@ def dispatch():
         return res
 
     result = json.dumps(resultobj.__dict__, default=outputFilter, sort_keys=False)
-    if result is not None:
-        print(result.replace(" ", ""))
+    # if result is not None:
+    #     print(result.replace(" ", ""))
     responseobj = Response(200, resultobj, "")
     response = json.dumps(responseobj.__dict__, default=outputFilter, sort_keys=False)
 
@@ -94,8 +94,8 @@ def dispatch():
 
 
 def local_start(port=8080):
-    app.run(debug=True, port=port)
+    app.run(debug=False, port=port)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    app.run(debug=False, port=8080)
