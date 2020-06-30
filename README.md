@@ -1,5 +1,5 @@
 # 复赛 Baseline - Python 移植版本
-
+https://tianchi.aliyun.com/forum/postDetail?spm=5176.12586969.1002.3.1f7f48c8KyMyxa&postId=104509
 [https://tianchi.aliyun.com/competition/entrance/231777](https://tianchi.aliyun.com/competition/entrance/231777)
 
 智慧物流：新冠期间饿了么骑士行为预估 复赛 
